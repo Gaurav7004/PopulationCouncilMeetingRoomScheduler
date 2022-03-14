@@ -21,9 +21,7 @@ import {
   UpdateEquipments,
   GetPeople,
   UpdatePeople,
-} 
-
-from "../../../../helpers/db";
+} from "../../../../helpers/db";
 //Styles
 import './styles/dragAndDrop/styles.css'
 import './styles/less/styles.css'
@@ -46,33 +44,33 @@ class Dnd extends Component {
   }
 
   componentDidMount() {
-    const newEvents = []
-    const newEquipments = []
-    const newPeople = []
+    const newEvents_Manthan = []
+    const newEquipments_Manthan = []
+    const newPeople_Manthan = []
 
     GetEvents(this.props.uid).then(querySnapshot => {
       querySnapshot.forEach(doc => {
-        newEvents.push(doc.data())
+        newEvents_Manthan.push(doc.data())
         this.setState({
-          events: newEvents,
+          events: newEvents_Manthan,
         })
       });
     })
     
     GetEquipments(this.props.uid).then(querySnapshot => {
       querySnapshot.forEach(doc => {
-        newEquipments.push(doc.data())
+        newEquipments_Manthan.push(doc.data())
         this.setState({
-          equipments: newEquipments,
+          equipments: newEquipments_Manthan,
         })
       });
     })
 
     GetPeople(this.props.uid).then(querySnapshot => {
       querySnapshot.forEach(doc => {
-        newPeople.push(doc.data())
+        newPeople_Manthan.push(doc.data())
         this.setState({
-          people: newPeople,
+          people: newPeople_Manthan,
         })
       });
     })
@@ -85,16 +83,14 @@ class Dnd extends Component {
     const nextEvents = [...events]
     if (idx > -1) {
       if(this.props.uid === event.ownerId){
-          if(this.props.start === event.start){
-            nextEvents.splice(idx, 1, updatedEvent)
-            UpdateEvents(event.id).update({start, end}).then(
-              this.setState({
-                events: nextEvents,
-              })
-          ).catch(error => {
-            console.error('Update error', error);
-          });
-        }
+        nextEvents.splice(idx, 1, updatedEvent)
+        UpdateEvents(event.id).update({start, end}).then(
+          this.setState({
+            events: nextEvents,
+          })
+        ).catch(error => {
+          console.error('Update error', error);
+        });
       }
     }
     else {
@@ -310,15 +306,15 @@ class Dnd extends Component {
       return (
         <div className={'row'}>
           <div className={'col-2'}>
-          <br/>
-          <h5 style={{textAlign: 'center', color: '#03A9F4'}} >Create Event :</h5>
+            <br/>
+            <h5 style={{textAlign: 'center', color: '#03A9F4'}} >Create Event :</h5>
             <FloatingActionButton
               mini={true}
               className={'m-2'}
               onClick={() => this.handleEquipments()}
             >
               {/* <ContentAdd /> */}
-                   +
+              +
             </FloatingActionButton>
 
             
@@ -327,15 +323,14 @@ class Dnd extends Component {
             />
           </div>
           <div style={{height: 500, width: 1100}} className={'col-10'}>
-            
-            <h3 style={{textAlign: 'center', color: '#03A9F4'}} >Vichar (IHC)</h3>
 
+            <h3 style={{textAlign: 'center', color: '#03A9F4'}} >Vichar (IHC)</h3>
+            
             <DragAndDropCalendar
               events={this.state.events}
               defaultView="week"
-              // timeslots={2}
-              // step={15}
               defaultDate={new Date()}
+              views={['week', 'day', 'month']}
               min={minTime}
               max={maxTime}
               onEventDrop={this.moveEvent}
@@ -358,7 +353,7 @@ class Dnd extends Component {
 
               />
             </Dialog>
-            <Dialog title="Create Meeting For - Vichar (IHC)"
+            <Dialog title="Create Meeting For - Vichar(IHC)"
                     modal={false}
                     open={this.state.equipmentsOpen}
                     onRequestClose={this.handleClose}
@@ -389,6 +384,7 @@ class Dnd extends Component {
         </div>
       )
     }
+
   }
 }
 
