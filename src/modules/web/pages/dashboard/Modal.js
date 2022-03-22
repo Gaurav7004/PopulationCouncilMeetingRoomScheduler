@@ -2,7 +2,6 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-
 export default class Modal extends React.Component {
 
   constructor(props) {
@@ -11,7 +10,7 @@ export default class Modal extends React.Component {
       ...props
     }
   }
-
+  
   handleSubmit = e => {
     e.preventDefault();
     this.state.onRequestClose()
@@ -48,6 +47,7 @@ export default class Modal extends React.Component {
             floatingLabelText="Title"
             onChange={(event, newValue) => this.setState({event: {...this.state.event, title: newValue}})}
           />
+
           <TextField
             defaultValue={this.state.event.desc}
             floatingLabelText="Description"
@@ -60,6 +60,13 @@ export default class Modal extends React.Component {
             disabled="true"
             onChange={(event, newValue) => this.setState({event: {...this.state.event, room: 'Vichar'}})}
           />
+
+          {/* <TextField
+            defaultValue={this.state.event.event_id}
+            floatingLabelText="Event ID"
+            // disabled="true"
+            onChange={(event, newValue) => this.setState({event: {...this.state.event, event_id: newValue}})}
+          /> */}
 
         </div>
         <div>

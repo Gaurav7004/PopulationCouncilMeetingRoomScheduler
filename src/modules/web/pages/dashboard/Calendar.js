@@ -3,7 +3,7 @@ import withDragDropContext from '../../../../config/withDragDropContext'
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import moment from 'moment'
 import uuidV4 from 'uuid/v4'
-import { minTime, maxTime, calendarInitialState, firebaseAuth, storageKey } from '../../../../config/constants'
+import { minTime, maxTime, calendarInitialState } from '../../../../config/constants'
 //Compoments
 import BigCalendar from 'react-big-calendar'
 import Dialog from 'material-ui/Dialog'
@@ -44,43 +44,48 @@ class Dnd extends Component {
   }
 
   componentDidMount() {
-    const newEvents_Manthan = []
-    const newEquipments_Manthan = []
-    const newPeople_Manthan = []
+    const newEvents = []
+    const newEquipments = []
+    const newPeople = []
 
     GetEvents(this.props.uid).then(querySnapshot => {
       querySnapshot.forEach(doc => {
-        newEvents_Manthan.push(doc.data())
+        newEvents.push(doc.data())
         this.setState({
-          events: newEvents_Manthan,
+          events: newEvents,
         })
       });
     })
     
     GetEquipments(this.props.uid).then(querySnapshot => {
       querySnapshot.forEach(doc => {
-        newEquipments_Manthan.push(doc.data())
+        newEquipments.push(doc.data())
         this.setState({
-          equipments: newEquipments_Manthan,
+          equipments: newEquipments,
         })
       });
     })
 
     GetPeople(this.props.uid).then(querySnapshot => {
       querySnapshot.forEach(doc => {
-        newPeople_Manthan.push(doc.data())
+        newPeople.push(doc.data())
         this.setState({
-          people: newPeople_Manthan,
+          people: newPeople,
         })
       });
     })
   }
 
-  moveEvent({event, start, end}) {
+  customTimeSlot = () => {
+    return <label className="rbc-time-slot">Book</label>;
+  };  
+
+  moveEvent({event, start, end, room}) {
     const {events} = this.state
     const idx = events.indexOf(event)
     let updatedEvent = {...event, start, end}
     const nextEvents = [...events]
+    console.log(event.id, updatedEvent)
     if (idx > -1) {
       if(this.props.uid === event.ownerId){
         nextEvents.splice(idx, 1, updatedEvent)
@@ -93,6 +98,9 @@ class Dnd extends Component {
         });
       }
     }
+    // else if (event.id, nextEvents[0].id){
+
+    // }
     else {
       if(this.props.uid === event.ownerId){
         const newEventId = uuidV4()
@@ -155,7 +163,7 @@ class Dnd extends Component {
   createPeople = ({title, desc, phone}) => {
     const {people} = this.state
     const newPeopleId = uuidV4()
-    const updatedPeople = {...this.state.modal, id: newPeopleId, ownerId: this.props.uid, company: '@pc', title, desc, phone}
+    const updatedPeople = {...this.state.modal, id: newPeopleId, ownerId: this.props.uid, company: '@pc', title, desc}
     const nextPeople = [...people]
     nextPeople.push(updatedPeople)
     UpdatePeople(newPeopleId).set(updatedPeople).then(
@@ -321,6 +329,9 @@ class Dnd extends Component {
             <Sidebar events={this.state.equipments}
                      onClickEvent={this.handleEquipments}
             />
+
+            <br/>
+
           </div>
           <div style={{height: 500, width: 1100}} className={'col-10'}>
 
@@ -337,6 +348,7 @@ class Dnd extends Component {
               resizable
               onEventResize={this.resizeEvent}
               onSelectEvent={this.selectEvent}
+              timeSlotWrapper= {this.customTimeSlot}
             />
 
             <Dialog title="Update Meeting For - Vichar(IHC)"

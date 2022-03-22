@@ -15,7 +15,7 @@ const propTypes = {
 function PrivateLayout({ children }) {
   return<div>
     <AppBar
-      title="Meeting Room Blocking App"
+      title="Meeting Room Scheduler"
       iconElementRight={topbarLogout}
       iconStyleRight={{
         display: 'flex',
@@ -23,9 +23,9 @@ function PrivateLayout({ children }) {
         marginTop: '0'
       }}
     />
-    <div className="container d-flex justify-content-center mt-2">
+    <div className="container d-flex justify-content-center mt-3">
       <div className="row">
-        <main style={{minHeight: '80vh'}}>
+        <main style={{minHeight: '90vh'}}>
           {children}
 
         </main>

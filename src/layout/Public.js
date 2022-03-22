@@ -13,7 +13,7 @@ const propTypes = {
 function PublicLayout({children}) {
   return <div>
     <AppBar
-      title="Meeting Room Blocking App"
+      title="Meeting Room Scheduler"
       iconElementRight={topbarButtons}
       iconStyleRight={{
         display: 'flex',

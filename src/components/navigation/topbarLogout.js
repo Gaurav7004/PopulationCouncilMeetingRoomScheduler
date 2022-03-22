@@ -6,16 +6,15 @@ import { logout } from "../../helpers/auth";
 const topbarLogout = (
   <div>
     <Link to="/dashboard">
-      <FlatButton label="Vichar" 
-      style={{color: '#fff'}} />
+      <FlatButton label="Vichar" style={{color: '#F5F5F5'}} />
     </Link>
 
     <Link to="/dashboard_Manthan">
-      <FlatButton label="Manthan"
-      style={{color: '#fff'}} />
+      <FlatButton label="Manthan" style={{color: '#F5F5F5'}} />
     </Link>
 
     <Link to="/dashboard_Aravali">
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
       <FlatButton label="Aravali" style={{color: '#fff'}} />
     </Link>
 

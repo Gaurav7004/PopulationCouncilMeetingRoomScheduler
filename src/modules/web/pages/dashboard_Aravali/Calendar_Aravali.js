@@ -139,10 +139,10 @@ class Dnd extends Component {
     }
   }
   
-  createEquipment = ({title, desc, room}) => {
+  createEquipment = ({title, desc}) => {
     const {equipments} = this.state
     const newEquipmentId = uuidV4()
-    const updatedEquipment = {...this.state.modal, id: newEquipmentId, ownerId: this.props.uid, title, desc, room}
+    const updatedEquipment = {...this.state.modal, id: newEquipmentId, ownerId: this.props.uid, title, desc}
     const nextEquipments = [...equipments]
     nextEquipments.push(updatedEquipment)
     UpdateEquipmentsAravali(newEquipmentId).set(updatedEquipment).then(
@@ -171,16 +171,16 @@ class Dnd extends Component {
 
 
   // #################### Update Events  #################################
-  editEvent = ({id, title, desc, room}) => {
+  editEvent = ({id, title, desc}) => {
     const {events} = this.state
 
     const nextEvents = events.map(existingEvent => {
       return existingEvent.id === id
-        ? {...existingEvent, title, desc, room}
+        ? {...existingEvent, title, desc}
         : existingEvent, console.log(this.props.uid)
     })
 
-    UpdateEventsAravali(id).update({title, desc, room}).then(
+    UpdateEventsAravali(id).update({title, desc}).then(
       this.setState({
         events: nextEvents,
       })
@@ -190,15 +190,15 @@ class Dnd extends Component {
   }
 
   // 
-  editEquipment = ({id, title, desc, room}) => {
+  editEquipment = ({id, title, desc}) => {
     const {equipments} = this.state
 
     const nextEquipments = equipments.map(existingEquipment => {
       return existingEquipment.id === id
-        ? {...existingEquipment, title, desc, room}
+        ? {...existingEquipment, title, desc}
         : existingEquipment
     })
-    UpdateEquipmentsAravali(id).update({title, desc, room}).then(
+    UpdateEquipmentsAravali(id).update({title, desc}).then(
       this.setState({
         equipments: nextEquipments,
       })

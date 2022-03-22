@@ -66,14 +66,14 @@ button.rbc-input::-moz-focus-inner {
   font-weight: bold;
   font-size: 90%;
   min-height: 0;
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #79d3ee;
 }
 .rbc-header + .rbc-header {
-  border-left: 1px solid #DDD;
+  border-left: 1px solid #79d3ee;
 }
 .rbc-rtl .rbc-header + .rbc-header {
   border-left-width: 0;
-  border-right: 1px solid #DDD;
+  border-right: 1px solid #79d3ee;
 }
 .rbc-header > a,
 .rbc-header > a:active,
@@ -241,7 +241,7 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-month-view {
   position: relative;
-  border: 1px solid #DDD;
+  border: 1px solid #79d3ee;
   display: flex;
   flex-direction: column;
   flex: 1 0 0;
@@ -264,7 +264,7 @@ button.rbc-input::-moz-focus-inner {
   height: 100%;
 }
 .rbc-month-row + .rbc-month-row {
-  border-top: 1px solid #DDD;
+  border-top: 1px solid #79d3ee;
 }
 .rbc-date-cell {
   flex: 1 1 0;
@@ -291,11 +291,11 @@ button.rbc-input::-moz-focus-inner {
   flex: 1 0 0%;
 }
 .rbc-day-bg + .rbc-day-bg {
-  border-left: 1px solid #DDD;
+  border-left: 1px solid #79d3ee;
 }
 .rbc-rtl .rbc-day-bg + .rbc-day-bg {
   border-left-width: 0;
-  border-right: 1px solid #DDD;
+  border-right: 1px solid #79d3ee;
 }
 .rbc-overlay {
   position: absolute;
@@ -321,7 +321,7 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-agenda-view table.rbc-agenda-table {
   width: 100%;
-  border: 1px solid #DDD;
+  border: 1px solid #79d3ee;
   border-spacing: 0;
   border-collapse: collapse;
 }
@@ -335,19 +335,19 @@ button.rbc-input::-moz-focus-inner {
   text-transform: lowercase;
 }
 .rbc-agenda-view table.rbc-agenda-table tbody > tr > td + td {
-  border-left: 1px solid #DDD;
+  border-left: 1px solid #79d3ee;
 }
 .rbc-rtl .rbc-agenda-view table.rbc-agenda-table tbody > tr > td + td {
   border-left-width: 0;
-  border-right: 1px solid #DDD;
+  border-right: 1px solid #79d3ee;
 }
 .rbc-agenda-view table.rbc-agenda-table tbody > tr + tr {
-  border-top: 1px solid #DDD;
+  border-top: 1px solid #79d3ee;
 }
 .rbc-agenda-view table.rbc-agenda-table thead > tr > th {
   padding: 3px 5px;
   text-align: left;
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #79d3ee;
 }
 .rbc-rtl .rbc-agenda-view table.rbc-agenda-table thead > tr > th {
   text-align: right;
@@ -377,7 +377,7 @@ button.rbc-input::-moz-focus-inner {
   flex: 1;
 }
 .rbc-timeslot-group {
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #79d3ee;
   min-height: 40px;
   display: flex;
   flex-flow: column nowrap;
@@ -427,7 +427,7 @@ button.rbc-input::-moz-focus-inner {
   min-height: 1em;
 }
 .rbc-day-slot .rbc-time-slot {
-  border-top: 1px solid #f7f7f7;
+  border-top: 1px solid #a6e2f4;
 }
 .rbc-time-slot {
   flex: 1 0 0;
@@ -455,7 +455,7 @@ button.rbc-input::-moz-focus-inner {
   flex-direction: column;
   flex: 1;
   width: 100%;
-  border: 1px solid #DDD;
+  border: 1px solid #79d3ee;
   min-height: 0;
 }
 .rbc-time-view .rbc-time-gutter {
@@ -480,34 +480,34 @@ button.rbc-input::-moz-focus-inner {
   flex-direction: row;
 }
 .rbc-time-header.rbc-overflowing {
-  border-right: 1px solid #DDD;
+  border-right: 1px solid #79d3ee;
 }
 .rbc-rtl .rbc-time-header.rbc-overflowing {
   border-right-width: 0;
-  border-left: 1px solid #DDD;
+  border-left: 1px solid #79d3ee;
 }
 .rbc-time-header > .rbc-row:first-child {
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #79d3ee;
 }
 .rbc-time-header > .rbc-row.rbc-row-resource {
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #79d3ee;
 }
 .rbc-time-header-content {
   flex: 1;
   min-width: 0;
   flex-direction: column;
-  border-left: 1px solid #DDD;
+  border-left: 1px solid #79d3ee;
 }
 .rbc-rtl .rbc-time-header-content {
   border-left-width: 0;
-  border-right: 1px solid #DDD;
+  border-right: 1px solid #79d3ee;
 }
 .rbc-time-content {
   display: flex;
   flex: 1 0 0%;
   align-items: flex-start;
   width: 100%;
-  border-top: 2px solid #DDD;
+  border-top: 2px solid #79d3ee;
   overflow-y: auto;
   position: relative;
 }
@@ -515,11 +515,11 @@ button.rbc-input::-moz-focus-inner {
   flex: none;
 }
 .rbc-time-content > * + * > * {
-  border-left: 1px solid #DDD;
+  border-left: 1px solid #79d3ee;
 }
 .rbc-rtl .rbc-time-content > * + * > * {
   border-left-width: 0;
-  border-right: 1px solid #DDD;
+  border-right: 1px solid #79d3ee;
 }
 .rbc-time-content > .rbc-day-slot {
   width: 100%;
@@ -529,7 +529,7 @@ button.rbc-input::-moz-focus-inner {
 .rbc-current-time-indicator {
   position: absolute;
   z-index: 3;
-  height: 1px;
-  background-color: #74ad31;
+  height: 3px;
+  background-color: #09f528;
   pointer-events: none;
 }
